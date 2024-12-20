@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Container, Button } from "@mui/material";
 import SignIn from "./SignIn";
 import Signup from "./Singup";
-import image from "../Component/online-graph.png";
+import image from "./online-graph.png";
 
 function LogIn() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -28,7 +28,7 @@ function LogIn() {
         sx={{
           flex: 1,
           display: "flex",
-          flexDirection: "column", 
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           padding: 2,
@@ -37,7 +37,7 @@ function LogIn() {
         {isSignIn ? <SignIn /> : <Signup />}
         <Button
           type="submit"
-          variant="text" 
+          variant="text"
           color="primary"
           fullWidth
           onClick={() => setIsSignIn(!isSignIn)}

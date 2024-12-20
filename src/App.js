@@ -4,7 +4,7 @@ import DashboardLayout from "./Component/DashboardLayout";
 import Weather from "./Component/Weather";
 import News from "./Component/News";
 import Task from "./Component/Task";
-import LogIn from "./Component/LogIn";
+import LogIn from "./Component/UserSignIn/LogIn";
 
 const App = () => {
   return (

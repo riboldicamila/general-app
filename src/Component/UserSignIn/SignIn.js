@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextField, Button, Container, Typography } from "@mui/material";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -11,31 +11,45 @@ const SignIn = () => {
 
   const navigate = useNavigate();
 
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard"); 
+      navigate("/dashboard");
     } catch (err) {
-      setError(err.message);
+      console.log(err); // Log the correct error object
+      switch (err.code) {
+        case "auth/user-not-found":
+          setError("No account found with this email.");
+          break;
+        case "auth/wrong-password":
+          setError("Incorrect password. Please try again.");
+          break;
+        case "auth/too-many-requests":
+          setError("Too many login attempts. Please try again later.");
+          break;
+        case "auth/network-request-failed":
+          setError("Network error. Please check your connection.");
+          break;
+        default:
+          setError("An unexpected error occurred. Please try again.");
+      }
     }
   };
 
   return (
     <Container maxWidth="xs">
-     <Typography
-             variant="subtitle1" 
-             component="h1"
-             gutterBottom
-             sx={{
-               textTransform: "uppercase", 
-               fontWeight: "bold",
-             }}
-           >
-             Welcome to Daily Panel: LogIn
-           </Typography>
-      {error && <Typography color="error">{error}</Typography>}
+      <Typography
+        variant="subtitle1"
+        component="h1"
+        gutterBottom
+        sx={{
+          textTransform: "uppercase",
+          fontWeight: "bold",
+        }}
+      >
+        Welcome to Daily Panel: LogIn
+      </Typography>
       <form onSubmit={handleLogin}>
         <TextField
           label="Email"
@@ -55,6 +69,12 @@ const SignIn = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        {error && (
+          <Typography color="error" sx={{ marginBottom: 2 }}>
+            {error}
+          </Typography>
+        )}
+
         <Button type="submit" variant="contained" color="primary" fullWidth>
           Login
         </Button>
