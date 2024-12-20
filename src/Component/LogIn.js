@@ -28,7 +28,7 @@ function LogIn() {
         sx={{
           flex: 1,
           display: "flex",
-          flexDirection: "column", // Aligns items vertically
+          flexDirection: "column", 
           justifyContent: "center",
           alignItems: "center",
           padding: 2,
@@ -37,12 +37,12 @@ function LogIn() {
         {isSignIn ? <SignIn /> : <Signup />}
         <Button
           type="submit"
-          variant="text" // Makes the button have no background color
+          variant="text" 
           color="primary"
           fullWidth
           onClick={() => setIsSignIn(!isSignIn)}
           style={{
-            marginTop: "8px", // Add some space between the component and button
+            marginTop: "8px",
           }}
         >
           {isSignIn ? "Sign Up" : "Log In"}
