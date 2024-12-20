@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { TextField, Button, Container, Typography } from "@mui/material";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebase'; // Adjust the path as necessary
+
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -8,13 +10,13 @@ const SignIn = () => {
   const [error, setError] = useState("");
 
   const handleLogin = async (e) => {
-    // e.preventDefault();
-    // try {
-    //   await signInWithEmailAndPassword(auth, email, password);
-    //   // Redirect or perform other actions on successful login
-    // } catch (err) {
-    //   setError(err.message);
-    // }
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      // Redirect or perform other actions on successful login
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
