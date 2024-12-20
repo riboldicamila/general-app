@@ -20,8 +20,16 @@ const Signup = () => {
 
   return (
     <Container maxWidth="xs">
-      <Typography variant="h4" component="h1" gutterBottom>
-        Sign up
+      <Typography
+        variant="subtitle1" 
+        component="h1"
+        gutterBottom
+        sx={{
+          textTransform: "uppercase", 
+          fontWeight: "bold",
+        }}
+      >
+        Welcome to Daily Panel: Sign up
       </Typography>
 
       <form onSubmit={handleSignup}>

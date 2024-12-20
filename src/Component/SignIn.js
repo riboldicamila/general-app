@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Container, Typography } from "@mui/material";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 
 const SignIn = () => {
@@ -8,10 +9,14 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      navigate("/dashboard"); 
     } catch (err) {
       setError(err.message);
     }
@@ -19,9 +24,17 @@ const SignIn = () => {
 
   return (
     <Container maxWidth="xs">
-      <Typography variant="h4" component="h1" gutterBottom>
-        Login
-      </Typography>
+     <Typography
+             variant="subtitle1" 
+             component="h1"
+             gutterBottom
+             sx={{
+               textTransform: "uppercase", 
+               fontWeight: "bold",
+             }}
+           >
+             Welcome to Daily Panel: LogIn
+           </Typography>
       {error && <Typography color="error">{error}</Typography>}
       <form onSubmit={handleLogin}>
         <TextField

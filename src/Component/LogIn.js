@@ -7,7 +7,6 @@ import image from "../Component/online-graph.png";
 function LogIn() {
   const [isSignIn, setIsSignIn] = useState(true);
 
-
   return (
     <Container maxWidth="lg" style={{ height: "100vh", display: "flex" }}>
       <Box
@@ -29,6 +28,7 @@ function LogIn() {
         sx={{
           flex: 1,
           display: "flex",
+          flexDirection: "column", // Aligns items vertically
           justifyContent: "center",
           alignItems: "center",
           padding: 2,
@@ -37,10 +37,13 @@ function LogIn() {
         {isSignIn ? <SignIn /> : <Signup />}
         <Button
           type="submit"
-          variant="contained"
+          variant="text" // Makes the button have no background color
           color="primary"
           fullWidth
           onClick={() => setIsSignIn(!isSignIn)}
+          style={{
+            marginTop: "8px", // Add some space between the component and button
+          }}
         >
           {isSignIn ? "Sign Up" : "Log In"}
         </Button>
