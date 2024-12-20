@@ -2,15 +2,19 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyDlXTSc2FQwu_MehU2lYN9JqJdGxiXQM7A",
+  authDomain: "daily-panel-app.firebaseapp.com",
+  projectId: "daily-panel-app",
+  storageBucket: "daily-panel-app.firebasestorage.app",
+  messagingSenderId: "402882152017",
+  appId: "1:402882152017:web:209940419eb23b191a1a70",
+  measurementId: "G-G4QR7TF3QZ"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 

@@ -1,29 +1,30 @@
 import React, { useState } from "react";
-import { TextField, Button, Container, Typography } from "@mui/material";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
 
-const SignIn = () => {
+import { auth } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { TextField, Button, Container, Typography } from "@mui/material";
+
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-    } catch (err) {
-      setError(err.message);
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("User  created successfully!");
+    } catch (error) {
+      console.error("Error signing up:", error);
     }
   };
 
   return (
     <Container maxWidth="xs">
       <Typography variant="h4" component="h1" gutterBottom>
-        Login
+        Sign up
       </Typography>
-      {error && <Typography color="error">{error}</Typography>}
-      <form onSubmit={handleLogin}>
+
+      <form onSubmit={handleSignup}>
         <TextField
           label="Email"
           type="email"
@@ -43,11 +44,11 @@ const SignIn = () => {
           required
         />
         <Button type="submit" variant="contained" color="primary" fullWidth>
-          Login
+          Sign up
         </Button>
       </form>
     </Container>
   );
 };
 
-export default SignIn;
+export default Signup;

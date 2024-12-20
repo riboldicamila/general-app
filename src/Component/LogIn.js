@@ -1,9 +1,13 @@
-import React from "react";
-import { Box, Container } from "@mui/material";
-import SignIn from "./SignIn"; // Adjust the path as necessary
-import image from "../Component/online-graph.png"; // Replace with your image path
+import React, { useState } from "react";
+import { Box, Container, Button } from "@mui/material";
+import SignIn from "./SignIn";
+import Signup from "./Singup";
+import image from "../Component/online-graph.png";
 
 function LogIn() {
+  const [isSignIn, setIsSignIn] = useState(true);
+
+
   return (
     <Container maxWidth="lg" style={{ height: "100vh", display: "flex" }}>
       <Box
@@ -19,7 +23,7 @@ function LogIn() {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        />{" "}
+        />
       </Box>
       <Box
         sx={{
@@ -30,7 +34,16 @@ function LogIn() {
           padding: 2,
         }}
       >
-        <SignIn />
+        {isSignIn ? <SignIn /> : <Signup />}
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={() => setIsSignIn(!isSignIn)}
+        >
+          {isSignIn ? "Sign Up" : "Log In"}
+        </Button>
       </Box>
     </Container>
   );
