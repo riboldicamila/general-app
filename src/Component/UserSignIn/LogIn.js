@@ -3,6 +3,7 @@ import { Box, Container, Button } from "@mui/material";
 import SignIn from "./SignIn";
 import Signup from "./Singup";
 import image from "./online-graph.png";
+import AnimationBackground from "./AnimationBackground";
 
 function LogIn() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -15,14 +16,15 @@ function LogIn() {
           height: "100vh",
         }}
       >
-        <Box
+        <AnimationBackground />
+        {/* <Box
           sx={{
             height: "100%",
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        />
+        /> */}
       </Box>
       <Box
         sx={{
