@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import NewsItem from "./NewsItem"; 
+import NewsItem from "./NewsItem";
+import { Grid, CircularProgress } from "@mui/material"; // Import MUI Grid and CircularProgress
 
 const News = ({ category }) => {
   const [articles, setArticles] = useState([]);
@@ -24,15 +25,17 @@ const News = ({ category }) => {
   }, [category]);
 
   if (loading) {
-    return <h4>Loading...</h4>;
+    return <CircularProgress />;
   }
 
   return (
-    <div className="news-container">
+    <Grid container spacing={3}>
       {articles.map((article, index) => (
-        <NewsItem key={index} article={article} />
+        <Grid item xs={12} sm={6} md={4} key={index}>
+          <NewsItem article={article} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 };
 

@@ -9,7 +9,10 @@ function LogIn() {
   const [isSignIn, setIsSignIn] = useState(true);
 
   return (
-    <Container maxWidth="lg" style={{ height: "100vh", display: "flex" }}>
+    <Container
+      maxWidth="lg"
+      style={{ height: "100vh", display: "flex", maxWidth: "100%" }}
+    >
       <Box
         sx={{
           flex: 1,
@@ -17,14 +20,6 @@ function LogIn() {
         }}
       >
         <AnimationBackground />
-        {/* <Box
-          sx={{
-            height: "100%",
-            backgroundImage: `url(${image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        /> */}
       </Box>
       <Box
         sx={{

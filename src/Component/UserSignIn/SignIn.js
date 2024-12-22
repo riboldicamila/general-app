@@ -17,7 +17,7 @@ const SignIn = () => {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/dashboard");
     } catch (err) {
-      console.log(err); // Log the correct error object
+      console.log(err);
       switch (err.code) {
         case "auth/user-not-found":
           setError("No account found with this email.");
@@ -38,17 +38,40 @@ const SignIn = () => {
   };
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="xs" sx={{ display: "flex", flexDirection: "column" }}>
       <Typography
-        variant="subtitle1"
+        variant="h4"
         component="h1"
         gutterBottom
         sx={{
-          textTransform: "uppercase",
+          textAlign: "left", // Align text to the left
           fontWeight: "bold",
         }}
       >
-        Welcome to Daily Panel: LogIn
+        Welcome to
+        <br />
+        <Typography
+          variant="h5"
+          component="span"
+          sx={{
+            display: "inline",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+          }}
+        >
+          Daily Panel:
+        </Typography>
+        <br />
+        <Typography
+          variant="body1"
+          component="span"
+          sx={{
+            display: "inline",
+            fontWeight: "normal",
+          }}
+        >
+          Log In
+        </Typography>
       </Typography>
       <form onSubmit={handleLogin}>
         <TextField
