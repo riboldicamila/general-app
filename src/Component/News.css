@@ -1,0 +1,18 @@
+body {
+  font-family: "Urbanist", sans-serif  !important;
+}
+
+.news-header {
+  text-align: center;
+  font-weight: 700;
+  font-size: 5rem;
+  color: #333;
+  margin: 80px 2px;
+}
+
+.news-title {
+  font-weight: 700;
+  font-size: 1.5rem !important;
+  margin: 0;
+  font-family: "Urbanist" !important;
+}

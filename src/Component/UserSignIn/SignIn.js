@@ -56,7 +56,6 @@ const SignIn = () => {
           sx={{
             display: "inline",
             fontWeight: "bold",
-            textTransform: "uppercase",
           }}
         >
           Daily Panel:

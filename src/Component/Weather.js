@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Card, CardContent, Typography, TextField, Button, CircularProgress } from '@mui/material';
+import './Weather.css'; // Import your CSS file for custom styles
 
 const Weather = () => {
   const [city, setCity] = useState('London'); 
@@ -11,9 +13,7 @@ const Weather = () => {
     setLoading(true);
     setError(null);
     try {
-      const apiKey = "d2d8626067cb3b31c2bd2f9f7007012a" ;
-
-      // process.env.REACT_APP_API_KEY;
+      const apiKey = "d2d8626067cb3b31c2bd2f9f7007012a";
       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
       setWeatherData(response.data);
     } catch (err) {
@@ -33,25 +33,36 @@ const Weather = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter city name"
+    <div className="weather-container">
+      <form onSubmit={handleSubmit} className="weather-form">
+        <TextField
+          label="Enter city name"
+          variant="outlined"
           value={city}
           onChange={(e) => setCity(e.target.value)}
+          style={{ marginRight: '10px' }}
         />
-        <button type="submit">Get Weather</button>
+        <Button variant="contained" color="primary" type="submit">Get Weather</Button>
       </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {loading && <CircularProgress />}
+      {error && <Typography color="error">{error}</Typography>}
       {weatherData && (
-        <div>
-          <h2>{weatherData.name}</h2>
-          <p>Temperature: {weatherData.main.temp}°C</p>
-          <p>Humidity: {weatherData.main.humidity}%</p>
-          <p>Weather: {weatherData.weather[0].description}</p>
-        </div>
+        <Card className="weather-card">
+          <CardContent>
+            <Typography variant="h4">{weatherData.name}</Typography>
+            <Typography variant="h6">
+              <img 
+                src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} 
+                alt={weatherData.weather[0].description} 
+              />
+              {weatherData.main.temp}°C
+            </Typography>
+            <Typography variant="body1">Humidity: {weatherData.main.humidity}%</Typography>
+            <Typography variant="body1">Weather: {weatherData.weather[0].description}</Typography>
+            <Typography variant="body1">Wind Speed: {weatherData.wind.speed} m/s</Typography>
+            <Typography variant="body1">Pressure: {weatherData.main.pressure} hPa</Typography>
+          </CardContent>
+        </Card>
       )}
     </div>
   );

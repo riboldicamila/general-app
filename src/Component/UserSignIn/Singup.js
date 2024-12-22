@@ -45,17 +45,38 @@ const Signup = () => {
   return (
     <Container maxWidth="xs">
       <Typography
-        variant="subtitle1"
+        variant="h4"
         component="h1"
         gutterBottom
         sx={{
-          textTransform: "uppercase",
+          textAlign: "left", // Align text to the left
           fontWeight: "bold",
         }}
       >
-        Welcome to Daily Panel: Sign up
+        Welcome to
+        <br />
+        <Typography
+          variant="h5"
+          component="span"
+          sx={{
+            display: "inline",
+            fontWeight: "bold",
+          }}
+        >
+          Daily Panel:
+        </Typography>
+        <br />
+        <Typography
+          variant="body1"
+          component="span"
+          sx={{
+            display: "inline",
+            fontWeight: "normal",
+          }}
+        >
+          Sign Up
+        </Typography>
       </Typography>
-
       <form onSubmit={handleSignup}>
         <TextField
           label="Email"

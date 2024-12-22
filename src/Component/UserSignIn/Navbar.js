@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
-import logo from "../logo192.png";
+import logo from "../logo-world.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Logo"
-            style={{ height: "40px", marginRight: "10px" }}
+            style={{ height: "60px", marginRight: "10px" }}
           />
         </Box>
 
