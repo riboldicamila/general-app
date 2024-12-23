@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { TextField, Button, Container, Typography } from "@mui/material";
+import { TextField, Container, Typography } from "@mui/material";
 import SimpleButton from "../GeneralUtilities/SimpleButton";
 
 const Signup = () => {

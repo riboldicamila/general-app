@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, Button, Box } from "@mui/material";
 import logo from "../logo-world.png";
 import SimpleButton from "../GeneralUtilities/SimpleButton";
 
@@ -12,7 +12,14 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#fff", color: "#000" }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: "#fff",
+        color: "#000",
+        padding: "10px"
+      }}
+    >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <img
@@ -34,9 +41,7 @@ const Navbar = () => {
           </Button>
         </Box>
 
-        <SimpleButton onClick={handleLogout} label="Log out" /> 
-
-  
+        <SimpleButton onClick={handleLogout} label="Log out" />
       </Toolbar>
     </AppBar>
   );
