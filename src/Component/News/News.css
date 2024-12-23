@@ -1,5 +1,9 @@
 body {
-  font-family: "Urbanist", sans-serif  !important;
+  font-family: "Urbanist", sans-serif !important;
+}
+
+.news-container {
+  padding: 35px;
 }
 
 .news-header {

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import logo from "../logo-world.png";
+import SimpleButton from "../GeneralUtilities/SimpleButton";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -33,18 +34,9 @@ const Navbar = () => {
           </Button>
         </Box>
 
-        <Button
-          onClick={handleLogout}
-          sx={{
-            backgroundColor: "#000",
-            color: "#fff",
-            "&:hover": {
-              backgroundColor: "#333",
-            },
-          }}
-        >
-          Log Out
-        </Button>
+        <SimpleButton onClick={handleLogout} label="Log out" /> 
+
+  
       </Toolbar>
     </AppBar>
   );

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Box, Container, Button } from "@mui/material";
 import SignIn from "./SignIn";
 import Signup from "./Singup";
-import image from "./online-graph.png";
 import AnimationBackground from "./AnimationBackground";
 
 function LogIn() {
@@ -40,6 +39,7 @@ function LogIn() {
           onClick={() => setIsSignIn(!isSignIn)}
           style={{
             marginTop: "8px",
+            color: "var(--pale-lilac)",
           }}
         >
           {isSignIn ? "Sign Up" : "Log In"}

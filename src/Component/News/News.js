@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NewsItem from "./NewsItem";
-import { Grid, CircularProgress, Typography } from "@mui/material"; 
-import './News.css'; 
+import { Grid, CircularProgress, Typography } from "@mui/material";
+import BreadCrumbs from "../GeneralUtilities/BreadCrumbs";
+
+import "./News.css";
 
 const News = ({ category }) => {
   const [articles, setArticles] = useState([]);
@@ -30,13 +32,17 @@ const News = ({ category }) => {
   }
 
   const today = new Date();
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = today.toLocaleDateString(undefined, options);
 
   return (
-    <div>
+    <div className="news-container">
+      <BreadCrumbs pageTitle="News" />
+
       <div className="news-header">
-        <Typography className="news-title">Today: {formattedDate} - News</Typography>
+        <Typography className="news-title">
+          Today: {formattedDate} - News
+        </Typography>
       </div>
       <Grid container spacing={3}>
         {articles.map((article, index) => (

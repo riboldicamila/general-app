@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import DashboardLayout from "./Component/DashboardLayout";
-import Weather from "./Component/Weather";
-import News from "./Component/News";
-import Task from "./Component/Task";
+import Weather from "./Component/Weather/Weather";
+import News from "./Component/News/News";
+import Task from "./Component/Tasks/Task";
 import LogIn from "./Component/UserSignIn/LogIn";
 
 const App = () => {
@@ -18,7 +18,6 @@ const App = () => {
       body1: {
         fontWeight: 400,
       },
-      // Add more variants if needed
     },
   });
 

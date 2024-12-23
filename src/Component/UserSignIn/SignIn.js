@@ -3,6 +3,7 @@ import { TextField, Button, Container, Typography } from "@mui/material";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
+import SimpleButton from "../GeneralUtilities/SimpleButton";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -97,9 +98,7 @@ const SignIn = () => {
           </Typography>
         )}
 
-        <Button type="submit" variant="contained" color="primary" fullWidth>
-          Login
-        </Button>
+        <SimpleButton type="submit" variant="contained" color="primary" fullWidth label="Login" />
       </form>
     </Container>
   );

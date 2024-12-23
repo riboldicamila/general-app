@@ -8,7 +8,10 @@ import {
   Button,
   CircularProgress,
 } from "@mui/material";
+import BreadCrumbs from "../GeneralUtilities/BreadCrumbs";
+
 import "./Weather.css";
+import SimpleButton from "../GeneralUtilities/SimpleButton";
 
 const Weather = () => {
   const [city, setCity] = useState("London");
@@ -49,17 +52,16 @@ const Weather = () => {
 
   return (
     <div className="weather-container">
+      <BreadCrumbs pageTitle="Weather" />
+
       <form onSubmit={handleSubmit} className="weather-form">
         <TextField
           label="Enter city name"
           variant="outlined"
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          style={{ marginRight: "10px" }}
         />
-        <Button variant="contained" color="primary" type="submit">
-          Get Weather
-        </Button>
+        <SimpleButton label="Get Weather" />
       </form>
       {loading && <CircularProgress />}
       {error && <Typography color="error">{error}</Typography>}
@@ -91,7 +93,23 @@ const Weather = () => {
       )}
       {forecastData && (
         <div className="forecast-container">
-          <Typography variant="h5">5-Day Forecast</Typography>
+          <Card
+            className="forecast-title-card"
+            sx={{
+              backgroundColor: "var(--pale-lilac)",
+              padding: "10px",
+              margin: "10px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              variant="h5"
+              sx={{ textAlign: "left", fontWeight: 700 }}
+            >
+              5-Day Extended <br /> Forecast
+            </Typography>
+          </Card>
           {forecastData.list.map((forecast, index) => (
             <Card key={index} className="forecast-card">
               <CardContent>

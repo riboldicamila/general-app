@@ -1,7 +1,14 @@
+:root {
+  --dark-black: #121212;
+  --medium-gray: #717171;
+  --pale-lilac: #cbceed;
+  --white: #ffffff;
+}
+
 body {
   font-family: "Urbanist", sans-serif !important;
 }
 
 h1 {
-  font-weight: 700; /* Use the weight you selected */
+  font-weight: 700;
 }

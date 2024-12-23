@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { TextField, Button, Container, Typography } from "@mui/material";
+import SimpleButton from "../GeneralUtilities/SimpleButton";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -101,9 +102,9 @@ const Signup = () => {
             {error}
           </Typography>
         )}
-        <Button type="submit" variant="contained" color="primary" fullWidth>
-          Sign up
-        </Button>
+        
+        <SimpleButton type="submit" variant="contained" color="primary" fullWidth label="Sign Up" />
+
       </form>
     </Container>
   );
