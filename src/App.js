@@ -7,6 +7,8 @@ import Weather from "./Component/Weather/Weather";
 import News from "./Component/News/News";
 import Task from "./Component/Tasks/Task";
 import LogIn from "./Component/UserSignIn/LogIn";
+import ProtectedRoute from "./ProtectedRoute";
+import { AuthProvider } from "./AuthContext";
 
 const App = () => {
   const theme = createTheme({
@@ -22,19 +24,28 @@ const App = () => {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Router>
-        <Routes>
-          <Route path="/" element={<LogIn />} />
-          <Route path="/dashboard" element={<DashboardLayout />}>
-            <Route path="weather" element={<Weather />} />
-            <Route path="news" element={<News />} />
-            <Route path="task" element={<Task />} />
-          </Route>
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router>
+          <Routes>
+            <Route path="/" element={<LogIn />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="weather" element={<Weather />} />
+              <Route path="news" element={<News />} />
+              <Route path="task" element={<Task />} />
+            </Route>
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </AuthProvider>
   );
 };
 
