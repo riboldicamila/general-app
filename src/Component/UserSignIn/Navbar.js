@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
-import { AuthContext } from "../../AuthContext";
 import { signOut } from "firebase/auth"; 
 import { auth } from "../../firebase";  
 
