@@ -14,6 +14,8 @@ function Dashboard() {
             {user ? user.displayName || user.email : "Guest"}
           </span>
         </p>
+      </div>
+      <div className="message">
         <div className="welcome-message">Welcome to Daily Panel</div>
         <div className="details-message">
           Keep in touch with weather, news, and more.
