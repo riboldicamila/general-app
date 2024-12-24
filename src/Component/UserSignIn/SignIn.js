@@ -46,7 +46,7 @@ const SignIn = () => {
         component="h1"
         gutterBottom
         sx={{
-          textAlign: "left", // Align text to the left
+          textAlign: "left",
           fontWeight: "bold",
         }}
       >

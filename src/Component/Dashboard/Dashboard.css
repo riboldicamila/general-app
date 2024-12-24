@@ -1,0 +1,40 @@
+.dashboard-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("purple-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.email-box {
+  padding: 2px 8px;
+  border: 1px solid white;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.welcome-message {
+  margin-top: 45px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.details-message {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 30px;
+}

@@ -9,6 +9,7 @@ import Task from "./Component/Tasks/Task";
 import LogIn from "./Component/UserSignIn/LogIn";
 import ProtectedRoute from "./ProtectedRoute";
 import { AuthProvider } from "./AuthContext";
+import Dashboard from "./Component/Dashboard/Dashboard";
 
 const App = () => {
   const theme = createTheme({
@@ -38,6 +39,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             >
+              <Route index element={<Dashboard />} />
               <Route path="weather" element={<Weather />} />
               <Route path="news" element={<News />} />
               <Route path="task" element={<Task />} />
