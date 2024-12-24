@@ -2,7 +2,7 @@ import React from "react";
 import { useAuth } from "../../AuthContext";
 import "./Dashboard.css";
 
-function Dashboard() {
+function Dashboard({ message }) {
   const { user } = useAuth();
 
   return (
@@ -15,12 +15,16 @@ function Dashboard() {
           </span>
         </p>
       </div>
-      <div className="message">
-        <div className="welcome-message">Welcome to Daily Panel</div>
-        <div className="details-message">
-          Keep in touch with weather, news, and more.
+      {message ? (
+        <div className="message">
+          <div className="welcome-message">Welcome to Daily Panel</div>
+          <div className="details-message">
+            Keep in touch with weather, news, and more.
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="maintenance"> This page is under maintenance. </div>
+      )}
     </div>
   );
 }

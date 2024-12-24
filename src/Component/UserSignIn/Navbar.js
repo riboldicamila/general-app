@@ -1,8 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
-import { signOut } from "firebase/auth"; 
-import { auth } from "../../firebase";  
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 import logo from "../logo-world.png";
 import SimpleButton from "../GeneralUtilities/SimpleButton";
@@ -11,12 +11,12 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    signOut(auth)  
+    signOut(auth)
       .then(() => {
-        navigate("/"); 
+        navigate("/");
       })
       .catch((error) => {
-        console.error("Error during logout:", error);  
+        console.error("Error during logout:", error);
       });
   };
 
@@ -31,11 +31,13 @@ const Navbar = () => {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <img
-            src={logo}
-            alt="Logo"
-            style={{ height: "60px", marginRight: "10px" }}
-          />
+          <Link to="/dashboard">
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ height: "60px", marginRight: "10px" }}
+            />
+          </Link>
         </Box>
 
         <Box sx={{ display: "flex", gap: 3 }}>

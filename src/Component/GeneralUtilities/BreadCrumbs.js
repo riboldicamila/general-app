@@ -4,25 +4,34 @@ import Typography from "@mui/material/Typography";
 
 const BasicBreadcrumbs = ({ pageTitle }) => {
   return (
-    <Breadcrumbs
-      sx={{
-        fontSize: "1rem",
-        "& .MuiLink-root": { color: "blue", textDecoration: "none" },
+    <div
+      style={{
+        marginBottom: "20px", 
       }}
-      separator="›"
     >
-      <Typography color="text.primary">Daily Panel</Typography>
-      <Typography
-        color="#cbceed"
+      <Breadcrumbs
         sx={{
-          textDecoration: "underline",
-          textDecorationColor: "var(--pale-lilac)",
-          textUnderlineOffset: "4px",
+          fontSize: "1rem",
+          "& .MuiLink-root": {
+            color: "blue",
+            textDecoration: "none",
+          },
         }}
+        separator="›"
       >
-        {pageTitle}
-      </Typography>
-    </Breadcrumbs>
+        <Typography color="text.primary">Daily Panel</Typography>
+        <Typography
+          color="var(--pale-lilac)"
+          sx={{
+            textDecoration: "underline",
+            textDecorationColor: "var(--pale-lilac)",
+            textUnderlineOffset: "4px",
+          }}
+        >
+          {pageTitle}
+        </Typography>
+      </Breadcrumbs>
+    </div>
   );
 };
 

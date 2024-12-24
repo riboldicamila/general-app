@@ -39,7 +39,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             >
-              <Route index element={<Dashboard />} />
+              <Route index element={<Dashboard message={true} />} />
               <Route path="weather" element={<Weather />} />
               <Route path="news" element={<News />} />
               <Route path="task" element={<Task />} />

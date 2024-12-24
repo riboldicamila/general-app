@@ -15,7 +15,6 @@
   color: white;
   padding: 20px;
   text-align: center;
-  border-radius: 10px;
 }
 
 .email-box {
@@ -40,6 +39,11 @@
 }
 
 .message {
+  padding: 30px;
+  color: white;
+}
+
+.maintenance {
   padding: 30px;
   color: white;
 }
