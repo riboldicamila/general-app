@@ -14,7 +14,7 @@ h1 {
   font-weight: 700;
 }
 
-/* Light mode (default) */
+/* Light mode */
 body {
   background-color: white;
   color: black;
@@ -23,7 +23,7 @@ body {
 
 /* Dark mode */
 body.dark-mode {
-  background-color: #333;
-  color: white;
+  background-color: #333333e7;
+  color: white !important;
   transition: all 0.3s ease;
 }

@@ -6,8 +6,12 @@ import { auth } from "../../firebase";
 
 import logo from "../logo-world.png";
 import SimpleButton from "../GeneralUtilities/SimpleButton";
+import { useTheme } from "../../ThemeContext/ThemeContext";
+
+import "./navbar.css"
 
 const Navbar = () => {
+  const { toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -52,7 +56,10 @@ const Navbar = () => {
           </Button> */}
         </Box>
 
-        <SimpleButton onClick={handleLogout} label="Log out" />
+        <div className="navbar-btn">
+          <SimpleButton onClick={toggleTheme} label="Toggle Theme" />
+          <SimpleButton onClick={handleLogout} label="Log out" />
+        </div>
       </Toolbar>
     </AppBar>
   );
