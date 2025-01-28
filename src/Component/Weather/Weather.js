@@ -9,9 +9,8 @@ import {
   CircularProgress,
 } from "@mui/material";
 import BreadCrumbs from "../GeneralUtilities/BreadCrumbs";
-
-import "./Weather.css";
 import SimpleButton from "../GeneralUtilities/SimpleButton";
+import "./Weather.css";
 
 const Weather = () => {
   const [city, setCity] = useState("London");
@@ -24,7 +23,7 @@ const Weather = () => {
     setLoading(true);
     setError(null);
     try {
-      const apiKey = "d2d8626067cb3b31c2bd2f9f7007012a";
+      const apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
       const currentResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       );
