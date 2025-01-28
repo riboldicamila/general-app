@@ -47,9 +47,9 @@ const Navbar = () => {
           <Button color="inherit" href="/dashboard/news">
             News
           </Button>
-          <Button color="inherit" href="/dashboard/task">
+          {/* <Button color="inherit" href="/dashboard/task">
             Task
-          </Button>
+          </Button> */}
         </Box>
 
         <SimpleButton onClick={handleLogout} label="Log out" />
