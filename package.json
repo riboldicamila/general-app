@@ -19,10 +19,6 @@
     "react-spring": "^9.7.5",
     "web-vitals": "^2.1.4"
   },
-  "resolutions": {
-    "ajv": "^8.17.1",
-    "@apideck/better-ajv-errors": "^0.3.6"
-  },
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
     "start": "react-scripts start",
